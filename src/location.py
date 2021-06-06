@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from enum import Enum
-from .geocode import GeocodeQuery
+from .geocode import _GeocodeQuery
 
 
 class Location(ABC):
@@ -374,7 +374,7 @@ class GeoRectangle(Rectangle):
             if not 0 < longitude_distance_degree <= 360:
                 raise ValueError("The range of longitude_distance_degree is [0, 360.0] degrees.")
 
-        geocode_query = GeocodeQuery()
+        geocode_query = _GeocodeQuery()
         geocode_query.set_one_line_Address(address)
         json_response = geocode_query.send_query()
         address_location = geocode_query.get_address_boxing(json_response)
@@ -448,7 +448,7 @@ class GeoCircle(Circle):
         if not isinstance(address, str):
             raise TypeError("Address is not type str.")
 
-        geocode_query = GeocodeQuery()
+        geocode_query = _GeocodeQuery()
         geocode_query.set_one_line_Address(address)
         json_response = geocode_query.send_query()
         address_location = geocode_query.get_address_boxing(json_response)

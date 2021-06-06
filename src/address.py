@@ -1,4 +1,4 @@
-class Address:
+class _Address:
     """
     Private class for representing addresses. Not part of the API.
     """
@@ -12,35 +12,35 @@ class Address:
         self.locality = None
         self.postal_code = None
 
-    def set_address_line(self, address_line) -> 'Address':
+    def set_address_line(self, address_line) -> '_Address':
         self.address_line = address_line
         return self
 
-    def set_admin_district(self, admin_district) -> 'Address':
+    def set_admin_district(self, admin_district) -> '_Address':
         self.admin_district = admin_district
         return self
 
-    def set_admin_district2(self, admin_district2) -> 'Address':
+    def set_admin_district2(self, admin_district2) -> '_Address':
         self.admin_district2 = admin_district2
         return self
 
-    def set_country_region(self, country_region) -> 'Address':
+    def set_country_region(self, country_region) -> '_Address':
         self.country_region = country_region
         return self
 
-    def set_country_region_iso2(self, country_region_iso2) -> 'Address':
+    def set_country_region_iso2(self, country_region_iso2) -> '_Address':
         self.country_region_iso2 = country_region_iso2
         return self
 
-    def set_formatted_address(self, formatted_address) -> 'Address':
+    def set_formatted_address(self, formatted_address) -> '_Address':
         self.formatted_address = formatted_address
         return self
 
-    def set_locality(self, locality) -> 'Address':
+    def set_locality(self, locality) -> '_Address':
         self.locality = locality
         return self
 
-    def set_postal_code(self, postal_code) -> 'Address':
+    def set_postal_code(self, postal_code) -> '_Address':
         self.postal_code = postal_code
         return self
 

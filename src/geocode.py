@@ -3,7 +3,7 @@ from enum import Enum
 
 import requests
 import urllib.parse
-from src.address import Address
+from src.address import _Address
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 KEY_PATH = os.path.join(ROOT_DIR, 'key.txt')
@@ -35,7 +35,7 @@ class IncludeAdditionalResponse(Enum):
     INCLUDE_BOTH = "queryParse,ciso2"
 
 
-class GeoLocationInfo:
+class _GeoLocationInfo:
     """
     A geolocation instance, containing three important information, including the center coordinates,
     boundary box and the address of a user specified address.
@@ -81,7 +81,7 @@ class GeoLocationInfo:
         return self.bounding_box
 
 
-class GeocodeQuery:
+class _GeocodeQuery:
     """
     An instance of the GeocodeQuery. This class is aimed to get the geological information
     of the user specified address.
@@ -133,7 +133,7 @@ class GeocodeQuery:
         else:
             raise KeyError("Cannot read key file")
 
-    def set_include_neighborhood(self, include_neighborhood_flag: IncludeNeighborhood) -> 'GeocodeQuery':
+    def set_include_neighborhood(self, include_neighborhood_flag: IncludeNeighborhood) -> '_GeocodeQuery':
         """
         Set whether the GeocodeQuery should include the neighborhood information if available.
 
@@ -154,7 +154,7 @@ class GeocodeQuery:
         """
         return self.include_neighborhood_flag
 
-    def set_max_results(self, max_results) -> 'GeocodeQuery':
+    def set_max_results(self, max_results) -> '_GeocodeQuery':
         """
         Set the max result of one time GeocodeQuery.
 
@@ -183,7 +183,7 @@ class GeocodeQuery:
         """
         return self.max_results
 
-    def set_include_additional_response(self, addition_response_flag: IncludeAdditionalResponse) -> 'GeocodeQuery':
+    def set_include_additional_response(self, addition_response_flag: IncludeAdditionalResponse) -> '_GeocodeQuery':
         """
         Set whether the GeocodeQuery should include additional information in the response.
 
@@ -266,12 +266,12 @@ class GeocodeQuery:
                 formattedAddress = self._assign_key('formattedAddress', address)
                 locality = self._assign_key('locality', address)
                 postalCode = self._assign_key('postalCode', address)
-                single_address = Address().set_address_line(addressLine).set_admin_district(adminDistrict) \
+                single_address = _Address().set_address_line(addressLine).set_admin_district(adminDistrict) \
                     .set_admin_district2(adminDistrict2).set_country_region(countryRegion) \
                     .set_country_region_iso2(countryRegionIso2).set_formatted_address(formattedAddress) \
                     .set_locality(locality).set_postal_code(postalCode)
-                geo_location = GeoLocationInfo(single_source_item_center, single_source_item_bounding_box,
-                                               single_address)
+                geo_location = _GeoLocationInfo(single_source_item_center, single_source_item_bounding_box,
+                                                single_address)
         return geo_location
 
     def _assign_key(self, key, address_dict):
