@@ -1,16 +1,7 @@
-# PyEarthquake
-PyEarthquake is a Python wrapper for [USGS Earthquake Catalog API](https://earthquake.usgs.gov/fdsnws/event/1/) that manages data querying and result processing. PyEarthquake also integrates [Bing Map API](https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/find-a-location-by-query) to manage geolocation of events.
+# PyQuakes
+PyQuakes is a Python wrapper for [USGS Earthquake Catalog API](https://earthquake.usgs.gov/fdsnws/event/1/) that manages data querying and result processing. PyEarthquake also integrates [Bing Map API](https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/find-a-location-by-query) to manage geolocation of events.
 
-## List of deliverables
-- Final report: ./final_report.pdf
-- API documentation HTML, getting started and examples: ./docs/index.html
-- Use case code (client code), and the comparison with the original API:  ./client
-- Prototype implementation: ./src
-- Unit tests: ./test
-
-If you are having trouble finding these deliverables, please email us (because we for sure submitted everything!)
-
-## Features of PyEarthquake
+## Features of PyQuakes
 - Handles the HTTP requests, and the HTTP error. Only needs to focus on setting parameters and data processing.
 - Supports setting the query parameters   
 - Supports searching with multiple time periods with easy-to-understand time format.
@@ -27,8 +18,16 @@ The EarthquakeQuery class has to be imported to use the API.
 Import other classes if you would like to search by time and location or set other parameters.
 
 ## Example
+To use geocode API, please specify the path of the key file first:
+```
+EarthquakeQuery.set_geocode_key_path("filepath")
+```
+
 A typical usage to search a collection of results is:
 ```
+from pyquakes import GeoRectangle, EarthquakeQuery, TimeFrame
+import datetime
+
 query = EarthquakeQuery()
 query.set_time([TimeFrame(datetime(2010, 1, 1), datetime(2015, 1, 1))])
 query.set_max_depth(1.0)
@@ -37,6 +36,8 @@ result = query.search()
 
 A typical usage to search a specific earthquake by its event id is:
 ```
+from pyquakes import EarthquakeQuery
+
 event_id = "usc000lvb5"
 result = EarthquakeQuery.search_by_event_id(event_id)
 ```

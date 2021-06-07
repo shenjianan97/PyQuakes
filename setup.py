@@ -4,15 +4,15 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name='pyearthquake',
+    name='pyquakes',
     version='0.0.1',
     author='Jianan Shen, Chen Mo',
     author_email="shenjianan97@gmail.com",
     license_files=('LICENSE.txt',),
-    description=('PyEarthquake is a Python wrapper for USGS Earthquake Catalog API that manages data querying and '
+    description=('PyQuakes is a Python wrapper for USGS Earthquake Catalog API that manages data querying and '
                  'result processing.'),
-    package_dir={'pyearthquake': 'src'},
-    packages=['pyearthquake', 'pyearthquake.enum'],
+    package_dir={'pyquakes': 'src'},
+    packages=['pyquakes', 'pyquakes.enum'],
     install_requires=[
         "requests >= 2.15.0"
     ],
