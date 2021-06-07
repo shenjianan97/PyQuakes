@@ -53,6 +53,7 @@ class TestEarthquakeQuery(unittest.TestCase):
         query.set_time(time)
         self.assertEqual(query.get_time(), time)
         # set location
+        EarthquakeQuery.set_geocode_key_path("../key.txt")
         location = [GeoRectangle("Los Angeles")]
         query.set_location(location)
         self.assertEqual(query.get_location(), location)

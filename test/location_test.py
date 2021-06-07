@@ -3,6 +3,7 @@ import os
 import sys
 sys.path.append(os.path.abspath('..'))
 from src.location import Location, Rectangle, Circle, RadiusUnit, GeoCircle, GeoRectangle
+from src.earthquake_query import EarthquakeQuery
 
 
 class TestRectangle(unittest.TestCase):
@@ -67,6 +68,7 @@ class TestCircle(unittest.TestCase):
 
 class TestGeoCircle(unittest.TestCase):
     def test_init_happy_path(self):
+        EarthquakeQuery.set_geocode_key_path("../key.txt")
         geo_circle = GeoCircle("Pittsburgh", RadiusUnit.DEGREE, 30)
         self.assertTrue(isinstance(geo_circle, Location))
         self.assertTrue(isinstance(geo_circle, Circle))
@@ -88,6 +90,7 @@ class TestGeoCircle(unittest.TestCase):
 
 class TestGeoRectangle(unittest.TestCase):
     def test_init_with_lat_lon_happy_path(self):
+        EarthquakeQuery.set_geocode_key_path("../key.txt")
         geo_rectangle = GeoRectangle("Pittsburgh", 30, 10)
         center_lat = 40.442169189453125
         center_lon = -79.99495697021484

@@ -98,6 +98,7 @@ class IntegrationTest(unittest.TestCase):
 
     def test_geolocation(self):
         # Test if there is no earthquake information for Pittsburgh (Pittsburgh is not in the earthquake zone)
+        EarthquakeQuery.set_geocode_key_path("../key.txt")
         location = [GeoRectangle("Pittsburgh, PA")]
         query = EarthquakeQuery(time=[TimeFrame(datetime(2010, 1, 1), datetime(2010, 4, 1))])
         query.set_location(location=location)

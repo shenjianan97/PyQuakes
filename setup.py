@@ -6,6 +6,8 @@ with open("README.md", "r") as fh:
 setup(
     name='pyearthquake',
     version='0.0.1',
+    author='Jianan Shen, Chen Mo',
+    author_email="shenjianan97@gmail.com",
     description=('PyEarthquake is a Python wrapper for USGS Earthquake Catalog API that manages data querying and '
                  'result processing.'),
     package_dir={'pyearthquake': 'src'},
