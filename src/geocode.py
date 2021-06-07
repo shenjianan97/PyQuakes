@@ -5,9 +5,6 @@ import requests
 import urllib.parse
 from .address import _Address
 
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-KEY_PATH = os.path.join(ROOT_DIR, 'key.txt')
-
 
 class IncludeNeighborhood(Enum):
     """
@@ -94,12 +91,12 @@ class _GeocodeQuery:
 
     query_url = "http://dev.virtualearth.net/REST/v1/Locations"
 
-    def __init__(self):
+    def __init__(self, key_path):
         """
         Construct a GeocodeQuery instance.
         The user specified key will be read automatically.
         """
-        self.key = self.read_key()
+        self.key = self.read_key(key_path)
         self.query = None
         self.include_neighborhood_flag = None
         self.max_results = None
@@ -113,21 +110,21 @@ class _GeocodeQuery:
         """
         return self.key
 
-    def read_key(self):
+    def read_key(self, key_path):
         """
         Read the user specified key.
 
         :raise KeyError - key file doesn't exist
                           cannot read user key from key file.
         """
-        if os.path.exists(KEY_PATH):
-            with open(KEY_PATH, 'r') as file:
+        if os.path.exists(key_path):
+            with open(key_path, 'r') as file:
                 try:
-                    if os.path.getsize(KEY_PATH) != 0:
+                    if os.path.getsize(key_path) != 0:
                         key = file.read().replace('\n', '')
                         return key
                     else:
-                        raise KeyError("Please put user key in " + KEY_PATH)
+                        raise KeyError("Please put user key in " + key_path)
                 except:
                     raise KeyError("Cannot Read Default Key")
         else:

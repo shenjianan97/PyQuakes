@@ -13,6 +13,7 @@ from .enum.delete import Delete
 from .enum.supersede import Supersede
 from .result_collection import ResultCollection
 from .single_result import SingleResult
+from .key import _Key
 
 
 class EarthquakeQuery:
@@ -199,6 +200,18 @@ class EarthquakeQuery:
                     method_to_call = getattr(self, dest_method_name)
                     # call the method
                     method_to_call(*param_list)
+
+    @staticmethod
+    def set_geocode_key_path(key_path: str):
+        """
+        Set the geocode key file path.
+        :param key_path: the path of the key file
+        :raises ValueError:  If the key path is not a string
+        """
+        if not isinstance(key_path, str):
+            raise TypeError("key_path should be a string")
+
+        _Key.key_path = key_path
 
     @staticmethod
     def search_by_event_id(event_id: str) -> SingleResult:
