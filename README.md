@@ -42,7 +42,3 @@ event_id = "usc000lvb5"
 result = EarthquakeQuery.search_by_event_id(event_id)
 ```
 For more examples, please refer to the **client** folder. Several use cases are contained in the clinet folder with example codes. See the function without **original** suffix.
-
-## Test
-Tests are placed in the test folder.
-Please cd into the folder and run each of the py files for testing.
