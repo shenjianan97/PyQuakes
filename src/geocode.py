@@ -235,7 +235,6 @@ class _GeocodeQuery:
             request_dict['maxResults'] = self.get_max_results()
         request_dict['key'] = self.get_key()
         r = requests.get(self.query_url, request_dict)
-        print(r.url)
         return r.json()
 
     def get_address_boxing(self, response):
