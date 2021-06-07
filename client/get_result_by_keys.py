@@ -3,14 +3,15 @@ import sys
 import os
 
 sys.path.append(os.path.abspath('..'))
-from src.location import GeoRectangle
-from src.earthquake_query import EarthquakeQuery
-from src.timeframe import TimeFrame
+from pyearthquake.location import GeoRectangle
+from pyearthquake.earthquake_query import EarthquakeQuery
+from pyearthquake.timeframe import TimeFrame
 from datetime import datetime
 
 
 def get_result_by_keys():
     # get the magnitudes and titles of earthquakes happened in Los Angeles during 2010-01-01 and 2011-1-1
+    EarthquakeQuery.set_geocode_key_path("/Users/shenjianan/PyEarthquake/key.txt")
     query = EarthquakeQuery(time=[TimeFrame(datetime(2010, 1, 1), datetime(2011, 1, 1))])
     query.set_location([GeoRectangle("Los Angeles")])
     result = query.search()

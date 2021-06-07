@@ -3,8 +3,8 @@ import sys
 import os
 
 sys.path.append(os.path.abspath('..'))
-from src.earthquake_query import EarthquakeQuery
-from src.timeframe import TimeFrame
+from pyearthquake.earthquake_query import EarthquakeQuery
+from pyearthquake.timeframe import TimeFrame
 from datetime import datetime
 
 
