@@ -1,4 +1,4 @@
-from .earthquakequery import EarthquakeQuery
+from .earthquake_query import EarthquakeQuery
 from .location import Rectangle, Circle, GeoRectangle, GeoCircle
 from .result_collection import ResultCollection
 from .single_result import SingleResult

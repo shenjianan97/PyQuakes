@@ -3,7 +3,7 @@ from enum import Enum
 
 import requests
 import urllib.parse
-from src.address import _Address
+from .address import _Address
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 KEY_PATH = os.path.join(ROOT_DIR, 'key.txt')

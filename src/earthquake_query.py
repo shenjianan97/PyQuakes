@@ -1,6 +1,5 @@
 import requests
 import urllib.parse
-from enum import Enum
 from typing import List
 
 from .timeframe import TimeFrame

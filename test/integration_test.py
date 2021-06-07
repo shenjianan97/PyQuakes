@@ -7,7 +7,7 @@ from datetime import datetime
 import requests
 
 sys.path.append(os.path.abspath('..'))
-from src.earthquakequery import EarthquakeQuery, Contributor
+from src.earthquake_query import EarthquakeQuery, Contributor
 from src.timeframe import TimeFrame
 from src.location import Rectangle, GeoRectangle
 from src.result_collection import ResultCollection

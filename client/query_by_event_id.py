@@ -3,7 +3,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath('..'))
-from src.earthquakequery import EarthquakeQuery
+from src.earthquake_query import EarthquakeQuery
 
 
 def query_by_event_id():

@@ -3,7 +3,7 @@ import sys
 import os
 
 sys.path.append(os.path.abspath('..'))
-from src.earthquakequery import EarthquakeQuery
+from src.earthquake_query import EarthquakeQuery
 from src.timeframe import TimeFrame
 from datetime import datetime
 
